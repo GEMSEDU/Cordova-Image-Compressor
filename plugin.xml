@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-image-compressor"
+    version="1.0.0">
+    <name>Cordova Image Compressor</name>
+    <description></description>
+    <repo>https://github.com/GEMSEDU/Cordova-Image-Compressor.git</repo>
+    <issue>https://github.com/GEMSEDU/Cordova-Image-Compressor/issues</issue>
+
+     <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+
+        <!-- This is the window variable name you want, like window.MyCordovaPlugin -->
+        <clobbers target="ImageCompressor" />
+      </js-module>
+    
+    <!-- android -->
+    <platform name="android">
+     
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="ImageCompressor">
+          <param name="android-package" value="com.cordova.imgcompressor.ImageCompressor" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+       <config-file parent="/*" target="AndroidManifest.xml">
+          <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+          <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        </config-file>
+
+
+      <source-file src="src/android/ImageCompressor.java" target-dir="src/com/cordova/imgcompressor"/>
+
+    </platform>
+    
+        <!-- iOS -->
+
+    <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="ImageCompressor">
+        <param name="ios-package" value="base64Compression" />
+      </feature>
+    </config-file>
+        
+        <framework src="Foundation.framework" />
+
+    <header-file src="src/ios/Base64.h" />
+    <source-file src="src/ios/Base64.m" />
+
+    <header-file src="src/ios/base64Compression.h" />
+    <source-file src="src/ios/base64Compression.m" />
+  </platform>
+</plugin>

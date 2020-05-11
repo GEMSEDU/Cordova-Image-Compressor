@@ -1,0 +1,12 @@
+{
+  "name": "cordova-image-compressor",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "cordova-image-compressor",
+    "platforms": [
+      "android",
+       "iOS"
+    ]
+  },
+  "description": "Image compressor for cordova application"
+}
